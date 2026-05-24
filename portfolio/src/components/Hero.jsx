@@ -5,79 +5,102 @@ function Hero() {
   return (
     <section
       id="home"
-      className="h-screen flex flex-col justify-center items-center text-center px-5"
+      className="min-h-screen flex items-center justify-center px-6 bg-white"
     >
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
 
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl md:text-7xl font-bold mb-5"
-      >
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex-1"
+        >
 
-        Hello, I'm
-        <span className="text-cyan-400"> Dharan</span>
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
+            Hello, I'm{" "}
+            <span className="text-blue-900">Dharan</span>
+          </h1>
 
-      </motion.h1>
+          {/* Type Animation */}
+          <div className="mt-4 mb-6">
+            <TypeAnimation
+              sequence={[
+                "Full Stack Developer",
+                2000,
+                "MERN Stack Engineer",
+                2000,
+                "AI-Powered Developer",
+                2000,
+                "Building Scalable Web Apps",
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              className="text-2xl md:text-3xl text-gray-600 font-medium"
+            />
+          </div>
 
-      <TypeAnimation
-        sequence={[
-          "MCA Student",
-          2000,
-          "Full Stack Developer",
-          2000,
-          "Backend Developer",
-          2000,
-          "AI Enthusiast",
-          2000,
-        ]}
-        wrapper="h2"
-        speed={50}
-        repeat={Infinity}
-        className="text-2xl md:text-4xl text-gray-300 mb-6 font-semibold"
-      />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-gray-600 text-lg max-w-xl mb-8 leading-relaxed"
+          >
+            MCA student and aspiring full-stack developer focused on building
+            modern web applications, scalable backend systems, and AI-driven solutions.
+          </motion.p>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="max-w-2xl text-gray-400 mb-8 text-lg"
-      >
+          {/* CTA BUTTONS */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex gap-4 flex-wrap"
+          >
+            <a
+              href="#projects"
+              className="px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:scale-105 transition"
+            >
+              View Projects
+            </a>
 
-        Passionate about building modern web
-        applications, backend systems and AI projects.
+            <a
+              href="/resume.pdf"
+              download
+              className="px-6 py-3 border border-gray-300 text-gray-800 rounded-lg font-medium hover:bg-gray-100 transition"
+            >
+              Download Resume
+            </a>
+          </motion.div>
 
-      </motion.p>
+        </motion.div>
 
-     <div className="flex gap-5">
+        {/* RIGHT IMAGE */}
+        <motion.div
+          initial={{ opacity: 0, x: 60, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.9 }}
+          className="flex-1 flex justify-center"
+        >
 
-  <motion.a
-    href="#projects"
-    initial={{ scale: 0 }}
-    animate={{ scale: 1 }}
-    transition={{ delay: 1.5, duration: 0.5 }}
-    className="bg-cyan-400 text-black px-6 py-3 rounded-xl font-semibold hover:scale-105 transition"
-  >
+          <motion.img
+            src="/public/myimg.jpeg"
+            alt="Dharan"
+            className="w-72 h-72 md:w-96 md:h-96 object-cover rounded-2xl shadow-xl border border-gray-900"
+            animate={{ y: [0, -10, 0] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            whileHover={{ scale: 1.03 }}
+          />
 
-    View Projects
+        </motion.div>
 
-  </motion.a>
-
-  <motion.a
-    href="/resume.pdf"
-    download
-    initial={{ scale: 0 }}
-    animate={{ scale: 1 }}
-    transition={{ delay: 1.7, duration: 0.5 }}
-    className="border border-cyan-400 text-cyan-400 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-400 hover:text-black transition"
-  >
-
-    Download Resume
-
-  </motion.a>
-
-</div>
-
+      </div>
     </section>
   );
 }

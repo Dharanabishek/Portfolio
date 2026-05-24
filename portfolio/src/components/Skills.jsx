@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -6,104 +7,54 @@ import {
   FaNodeJs,
   FaGithub,
 } from "react-icons/fa";
-
 import { SiExpress, SiMongodb } from "react-icons/si";
+
+const skills = [
+  { icon: FaHtml5, name: "HTML", color: "text-orange-500" },
+  { icon: FaCss3Alt, name: "CSS", color: "text-blue-500" },
+  { icon: FaJs, name: "JavaScript", color: "text-yellow-500" },
+  { icon: FaReact, name: "React", color: "text-cyan-500" },
+  { icon: FaNodeJs, name: "Node.js", color: "text-green-600" },
+  { icon: SiExpress, name: "Express.js", color: "text-gray-700" },
+  { icon: SiMongodb, name: "MongoDB", color: "text-green-500" },
+  { icon: FaGithub, name: "GitHub", color: "text-gray-800" },
+];
 
 function Skills() {
   return (
-    <section
-      id="skills"
-      className="py-20 px-10 text-center"
-    >
+    <section id="skills" className="py-24 px-6 text-center bg-white">
 
-      <h2 className="text-4xl font-bold text-cyan-400 mb-10">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
         Skills
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
 
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
+        {skills.map((skill, i) => {
+          const Icon = skill.icon;
 
-          <FaHtml5 className="text-6xl text-orange-500 mx-auto mb-4" />
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ y: -5 }}
+              className="flex flex-col items-center justify-center p-6 rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition"
+            >
 
-          <h3 className="text-xl font-semibold">
-            HTML
-          </h3>
+              <Icon className={`text-4xl mb-3 ${skill.color}`} />
 
-        </div>
+              <h3 className="text-sm font-medium text-gray-700">
+                {skill.name}
+              </h3>
 
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
-
-          <FaCss3Alt className="text-6xl text-blue-500 mx-auto mb-4" />
-
-          <h3 className="text-xl font-semibold">
-            CSS
-          </h3>
-
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
-
-          <FaJs className="text-6xl text-yellow-400 mx-auto mb-4" />
-
-          <h3 className="text-xl font-semibold">
-            JavaScript
-          </h3>
-
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
-
-          <FaReact className="text-6xl text-cyan-400 mx-auto mb-4" />
-
-          <h3 className="text-xl font-semibold">
-            React
-          </h3>
-
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
-
-          <FaNodeJs className="text-6xl text-green-500 mx-auto mb-4" />
-
-          <h3 className="text-xl font-semibold">
-            Node.js
-          </h3>
-
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
-
-          <SiExpress className="text-6xl text-white mx-auto mb-4" />
-
-          <h3 className="text-xl font-semibold">
-            Express.js
-          </h3>
-
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
-
-          <SiMongodb className="text-6xl text-green-400 mx-auto mb-4" />
-
-          <h3 className="text-xl font-semibold">
-            MongoDB
-          </h3>
-
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition">
-
-          <FaGithub className="text-6xl text-gray-300 mx-auto mb-4" />
-
-          <h3 className="text-xl font-semibold">
-            GitHub
-          </h3>
-
-        </div>
+            </motion.div>
+          );
+        })}
 
       </div>
-
     </section>
   );
 }

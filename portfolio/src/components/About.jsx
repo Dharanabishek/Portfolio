@@ -1,20 +1,19 @@
 function About() {
   return (
-    <section className="py-20 px-10 text-center">
+    <section id="about" className="py-24 px-6 md:px-10 text-center bg-white">
 
-      <h2 className="text-4xl font-bold text-cyan-400 mb-6">
-        About Me
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+        About
       </h2>
 
-      <p className="max-w-3xl mx-auto text-gray-400 text-lg">
+      <p className="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">
 
-        I am currently pursuing MCA and passionate
-        about Full Stack Development, backend systems,
-        artificial intelligence and modern web technologies.
+        I’m an MCA student and aspiring full-stack developer focused on building modern, scalable web applications and intelligent software systems.  
+        I work with Python, JavaScript, SQL, and MongoDB, with a strong interest in backend development and AI-powered solutions.
 
-        I enjoy building scalable applications and learning
-        new technologies every day.
+        <br /><br />
 
+        I’ve worked on projects involving machine learning models and full-stack applications, where I focus on clean architecture, performance, and turning ideas into real-world products that solve meaningful problems.
 
       </p>
 
